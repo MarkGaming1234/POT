@@ -4,6 +4,7 @@ from PyQt5.QtGui import QIcon,QFont
 from PyQt5.QtCore import QSize,QUrl
 from PyQt5.QtWebEngineWidgets import QWebEnginePage, QWebEngineView
 
+
 class Window(QMainWindow):
     def __init__(self):
        super().__init__()
@@ -49,12 +50,13 @@ class Window(QMainWindow):
        self.addressLineEdit=QLineEdit()
        self.addressLineEdit.setFont(QFont("Sanserif", 15))
        self.addressLineEdit.returnPressed.connect(self.searchBTN)
+       
        toolbar.addWidget(self.addressLineEdit)
 
 
-       #Boton de Busqueda
+       #Boton de Carga
        self.searchButton= QPushButton()
-       self.searchButton.setIcon(QIcon("icons/search.png"))
+       self.searchButton.setIcon(QIcon("icons/whts.PNG"))
        self.searchButton.setIconSize(QSize(36,36))
        self.searchButton.clicked.connect(self.searchBTN)
        toolbar.addWidget(self.searchButton)
@@ -69,8 +71,7 @@ class Window(QMainWindow):
 
 
     def searchBTN(self):
-      myUrl =self.addressLineEdit.text()
-      self.webEngineView.load(QUrl(myUrl))
+      self.webEngineView.load(QUrl("https://web.whatsapp.com/"))
     
     def backBTN(self):
         self.webEngineView.back()
